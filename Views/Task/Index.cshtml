@@ -1,0 +1,73 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model IEnumerable<TaskManagerZUwierzytelnieniem.Models.TaskModel>
+
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @*<li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Witaj @User.Identity.Name!</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link text-dark">Wyloguj</button>
+            </form>
+        </li>*@
+
+        <h1>Lista zadań</h1>
+
+        <p>
+            <a asp-action="Create">Dodaj zadanie</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Gotowe", "Done", new { id = item.TaskId }) |
+                            @Html.ActionLink("Edytuj", "Edit", new { id = item.TaskId }) |
+                            @Html.ActionLink("Szczegóły", "Details", new { id = item.TaskId }) |
+                            @Html.ActionLink("Usuń", "Delete", new { id = item.TaskId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        @*<li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Załóż konto</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Zaloguj</a>
+        </li>*@
+
+        <h3><center><a href="Identity/Account/Login">Proszę się zalogować, aby dodać zadanie.</a></center></h3>
+    }
+</ul>
+
+
+
+
+

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Cytaty";
+}
+
+<h1>Cytaty</h1>
+
+<p>Wybierz cytat na dziś:</p>
+
+@* Formularz z cytatami, po wybraniu których trafiają one do sesji *@
+
+<form id="myForm" action="/Home/Cytaty" method="Post">
+    <div>
+        <input type="radio" id="1" name="cytat" value="Zaczynamy żyć, kiedy przestajemy się bać życia">
+        <label for="1">Zaczynamy żyć, kiedy przestajemy się bać życia</label>
+    </div>
+    <div>
+        <input type="radio" id="2" name="cytat" value="Jeżeli robisz to co łatwe, Twoje życie będzie trudne. Jeśli robisz to co trudne, Twoje życie będzie łatwe.">
+        <label for="2">Jeżeli robisz to co łatwe, Twoje życie będzie trudne. Jeśli robisz to co trudne, Twoje życie będzie łatwe.</label>
+    </div>
+    <div>
+        <input type="radio" id="3" name="cytat" value="Najtrudniejsza rzecz w życiu to nauczyć się, które mosty przekraczać, a które palić.">
+        <label for="3">Najtrudniejsza rzecz w życiu to nauczyć się, które mosty przekraczać, a które palić.</label>
+    </div>
+    <button type="submit">Dodaj cytat</button>
+
+</form>

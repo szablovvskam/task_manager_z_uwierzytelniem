@@ -1,0 +1,8 @@
+﻿@{Context.Session.TryGetValue("Cytaty", out var cytatyTablica);
+
+    @if (cytatyTablica != null)
+    {
+        string cytaty = System.Text.Encoding.UTF8.GetString(cytatyTablica);
+        @Html.Raw(cytaty)
+    }
+}
