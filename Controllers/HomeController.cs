@@ -43,7 +43,7 @@ namespace TaskManagerZUwierzytelnieniem.Controllers
             string cytaty = HttpContext.Session.GetString("Cytaty");
             cytaty += "<br>" + cytat;
             HttpContext.Session.SetString("Cytaty", cytaty);
-            return RedirectToAction("Index", "Task");
+            return RedirectToAction("Cytaty");
         }
 
         public IActionResult My()
